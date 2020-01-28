@@ -10,8 +10,8 @@ public class Deck {
   public Deck() {
     this.cards = new ArrayList<Card>();
 
-    for (Suit suit: Suit.getAll()) {
-      for (Rank rank: Rank.getAll()) {
+    for (Suit suit: Suit.values()) {
+      for (Rank rank: Rank.values()) {
         this.cards.add(new Card(suit, rank));
       }
     }

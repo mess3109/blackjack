@@ -13,6 +13,10 @@ public class Player {
     refreshHand();
   }
 
+  public String getName() {
+    return this.name;
+  }
+
   public void addCard(Deck deck) {
     this.hand.add(deck.getNextCard());
   }
@@ -21,9 +25,6 @@ public class Player {
 
   }
 
-  public String getName() {
-    return this.name;
-  }
 
   private void refreshHand() {
     this.hand = new ArrayList<Card>();

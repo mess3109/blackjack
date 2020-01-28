@@ -24,10 +24,6 @@ public enum Rank {
     this.value = value;
   }
 
-  public static Rank[] getAll() {
-    return new Rank[]{TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE};
-  }
-
   public String getName() {
     return this.name;
   }
