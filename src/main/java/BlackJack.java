@@ -1,8 +1,14 @@
-import models.Deck;
+import models.Game;
+import models.Player;
 
 public class BlackJack {
 
   public static void main(String[] args) {
-    Deck deck = new Deck();
+
+    Player player = new Player();
+    Player dealer = new Player();
+
+    Game game = new Game(player, dealer);
+
   }
 }
