@@ -10,11 +10,10 @@ public class Deck {
   public Deck() {
     this.cards = new ArrayList<Card>();
 
-    for (int i = 1; i <= 13; i++) {
-      cards.add(new Card(Suit.CLUB, i));
-      cards.add(new Card(Suit.SPADE, i));
-      cards.add(new Card(Suit.DIAMOND, i));
-      cards.add(new Card(Suit.HEART, i));
+    for (Suit suit: Suit.getAll()) {
+      for (Rank rank: Rank.getAll()) {
+        this.cards.add(new Card(suit, rank));
+      }
     }
 
     this.shuffle();

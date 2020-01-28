@@ -3,18 +3,18 @@ package models;
 public class Card {
 
   private Suit suit;
-  private Integer value;
+  private Rank rank;
 
-  public Card(Suit suit, Integer value) {
+  public Card(Suit suit, Rank rank) {
     this.suit = suit;
-    this.value = value;
+    this.rank = rank;
   }
 
   public Suit getSuit() {
     return suit;
   }
 
-  public Integer getValue() {
-    return value;
+  public Rank getRank() {
+    return rank;
   }
 }

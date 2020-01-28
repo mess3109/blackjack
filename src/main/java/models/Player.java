@@ -13,7 +13,7 @@ public class Player {
     refreshHand();
   }
 
-  public void hit(Deck deck) {
+  public void addCard(Deck deck) {
     this.hand.add(deck.getNextCard());
   }
 
@@ -37,14 +37,14 @@ public class Player {
   public int getHandSum() {
     int sum = 0;
     for (Card card : hand) {
-      sum += Math.min(card.getValue(), 10);
+      sum += Math.min(card.getRank().getValue(), 10);
     }
     return sum;
   }
 
   public void playRound(Deck deck) {
     if (getHandSum() <= 12) {
-      hit(deck);
+      addCard(deck);
     } else {
       stand();
     }
