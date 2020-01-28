@@ -11,6 +11,7 @@ public class Game {
     this.player = player;
     this.dealer = dealer;
     dealRound();
+
   }
 
   public void dealRound() {
@@ -18,5 +19,21 @@ public class Game {
     dealer.hit(deck);
     player.hit(deck);
     dealer.hit(deck);
+  }
+
+  public Deck getDeck() {
+    return this.deck;
+  }
+
+  public Player checkWinner() {
+    if (player.checkHandOver()) {
+      return this.dealer;
+    } else if (dealer.checkHandOver()) {
+      return this.player;
+    } else if (dealer.getHandSum() > player.getHandSum()) {
+      return this.dealer;
+    } else {
+      return this.player;
+    }
   }
 }
