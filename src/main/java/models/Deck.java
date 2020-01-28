@@ -20,6 +20,10 @@ public class Deck {
     this.shuffle();
   }
 
+  public Card getNextCard() {
+    return cards.remove(0);
+  }
+
   private void shuffle() {
     for (int i = 0; i < cards.size(); i++) {
       int j = (int) Math.floor(Math.random() * (i + 1));
