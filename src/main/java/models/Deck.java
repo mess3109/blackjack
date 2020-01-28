@@ -16,9 +16,16 @@ public class Deck {
       cards.add(new Card(Suit.DIAMOND, i));
       cards.add(new Card(Suit.HEART, i));
     }
+
+    this.shuffle();
   }
 
   private void shuffle() {
-
+    for (int i = 0; i < cards.size(); i++) {
+      int j = (int) Math.floor(Math.random() * (i + 1));
+      Card temp = cards.get(i);
+      cards.set(i, cards.get(j));
+      cards.set(j, temp);
+    }
   }
 }
