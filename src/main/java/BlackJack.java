@@ -1,25 +1,28 @@
-import models.Deck;
+import models.BJPlayer;
+import models.Dealer;
 import models.Game;
 
 public class BlackJack {
 
   public static void main(String[] args) {
 
-    BJPlayer player = new BJPlayer("BJPlayer");
-    BJPlayer dealer = new BJPlayer("Dealer");
+    BJPlayer player = new BJPlayer("Player");
+    Dealer dealer = new Dealer("Dealer");
 
     Game game = new Game(player, dealer);
-    Deck deck = game.getDeck();
 
-    player.playRound(deck);
-    if (!player.checkHandOver()) {
-      dealer.playRound(deck);
+    while (player.playAgain(game.getVisibleDealerCard()) && !game.isOver()) {
+      game.hit(player);
     }
 
-    BJPlayer winner = game.checkWinner();
+    if (game.isOver()) {
+      System.out.println("Player loses");
+    }
 
+    while (dealer.playAgain() && !game.isOver()) {
+      game.hit(dealer);
+    }
 
-
-    System.out.println(winner.getName());
+    game.printWinner();
   }
 }
