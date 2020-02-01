@@ -1,12 +1,12 @@
-import models.BJPlayer;
+import models.BPlayer;
 import models.Dealer;
 import models.Game;
 
-public class BlackJack {
+public class Blackjack {
 
   public static void main(String[] args) {
 
-    BJPlayer player = new BJPlayer("M");
+    BPlayer player = new BPlayer("M");
     Dealer dealer = new Dealer("D");
 
     Game game = new Game(player, dealer);

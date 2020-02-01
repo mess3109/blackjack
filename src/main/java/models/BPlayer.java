@@ -1,8 +1,8 @@
 package models;
 
-public class BJPlayer extends Player {
+public class BPlayer extends Player {
 
-  public BJPlayer(String name) {
+  public BPlayer(String name) {
     super(name);
   }
 
