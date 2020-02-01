@@ -3,11 +3,10 @@ package models;
 public class Game {
 
   private Deck deck;
-  private BJPlayer player;
-  private BJPlayer dealer;
-  private boolean gameOver;
+  private Player player;
+  private Dealer dealer;
 
-  public Game(BJPlayer player, BJPlayer dealer) {
+  public Game(Player player, Dealer dealer) {
     this.deck = new Deck();
     this.player = player;
     this.dealer = dealer;
@@ -15,25 +14,17 @@ public class Game {
   }
 
   public void dealRound() {
-    player.addCard(deck);
-    dealer.addCard(deck);
-    player.addCard(deck);
-    dealer.addCard(deck);
+    this.player.addCard(deck.getNextCard());
+    this.dealer.addCard(deck.getNextCard());
+    this.player.addCard(deck.getNextCard());
+    this.dealer.addCard(deck.getNextCard());
   }
 
   public Deck getDeck() {
     return this.deck;
   }
 
-  public BJPlayer checkWinner() {
-    if (player.checkHandOver()) {
-      return this.dealer;
-    } else if (dealer.checkHandOver()) {
-      return this.player;
-    } else if (dealer.getHandSum() > player.getHandSum()) {
-      return this.dealer;
-    } else {
-      return this.player;
-    }
+  public boolean isGameOver() {
+    return this.player.getTotal() >= 21 || this.dealer.getTotal() >= 21;
   }
 }
