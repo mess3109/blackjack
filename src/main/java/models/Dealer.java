@@ -9,4 +9,9 @@ public class Dealer extends Player {
   public boolean playAgain() {
     return this.getTotal() < 17;
   }
+
+  @Override
+  public String toString() {
+    return "Dealer " + super.toString();
+  }
 }

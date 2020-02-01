@@ -6,8 +6,8 @@ public class BlackJack {
 
   public static void main(String[] args) {
 
-    BJPlayer player = new BJPlayer("Player");
-    Dealer dealer = new Dealer("Dealer");
+    BJPlayer player = new BJPlayer("M");
+    Dealer dealer = new Dealer("D");
 
     Game game = new Game(player, dealer);
 

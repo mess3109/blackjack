@@ -12,6 +12,8 @@ public class Game {
     this.player = player;
     this.dealer = dealer;
     dealRound();
+    player.printHand();
+    System.out.println(this.dealer + " is showing card: " + visibleDealerCard);
   }
 
   private void dealRound() {
@@ -25,7 +27,8 @@ public class Game {
   public void hit(Player player) {
     Card card = deck.getNextCard();
     player.addCard(card);
-    System.out.println("Player " + player + " is dealt " + card.toString());
+    System.out.println("Player " + player + " hits and is dealt " + card.toString());
+    player.printHand();
   }
 
   public Card getVisibleDealerCard() {
@@ -38,15 +41,15 @@ public class Game {
 
   public void printWinner() {
     if (player.isOver()) {
-      System.out.println("Dealer " + dealer + " wins with total " + dealer.getTotal());
+      System.out.println(dealer + " wins with total " + dealer.getTotal());
     } else if (dealer.isOver()) {
-      System.out.println("Player " + player + " wins with total " + player.getTotal());
+      System.out.println(player + " wins with total " + player.getTotal());
     } else if (dealer.getTotal() == player.getTotal()) {
       System.out.println("Push");
     } else if (dealer.getTotal() > player.getTotal()) {
-      System.out.println("Dealer " + dealer + " wins with total " + dealer.getTotal());
+      System.out.println(dealer + " wins with total " + dealer.getTotal());
     } else {
-      System.out.println("Player " + player + " wins with total " + player.getTotal());
+      System.out.println(player + " wins with total " + player.getTotal());
     }
   }
 }

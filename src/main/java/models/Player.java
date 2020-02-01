@@ -12,10 +12,6 @@ public abstract class Player {
     this.name = name;
   }
 
-  public String getName() {
-    return name;
-  }
-
   public boolean isOver() {
     return getTotal() > 21;
   }
@@ -35,7 +31,27 @@ public abstract class Player {
     hand.add(card);
   }
 
+  @Override
   public String toString() {
     return name;
+  }
+
+  public void printHand() {
+    StringBuilder handSB = new StringBuilder();
+    handSB.append(this);
+    handSB.append(" has hand: ");
+
+    for (Card card : this.hand) {
+      handSB.append(card);
+      handSB.append(", ");
+    }
+
+    System.out.append(handSB.toString());
+
+    printTotal();
+  }
+
+  public void printTotal() {
+    System.out.println(this + " has total " + this.getTotal());
   }
 }

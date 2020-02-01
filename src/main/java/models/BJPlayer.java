@@ -17,4 +17,9 @@ public class BJPlayer extends Player {
       return false;
     }
   }
+
+  @Override
+  public String toString() {
+    return "Player " + super.toString();
+  }
 }
