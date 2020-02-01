@@ -24,7 +24,7 @@ public abstract class Player {
       minTotal += points;
       maxTotal += (card.getRank() == Rank.ACE) ? 11 : points;
     }
-    return (maxTotal > 21) ? minTotal : maxTotal;
+    return maxTotal > 21 ? minTotal : maxTotal;
   }
 
   public void addCard(Card card) {
@@ -51,7 +51,7 @@ public abstract class Player {
     printTotal();
   }
 
-  public void printTotal() {
+  private void printTotal() {
     System.out.println(this + " has total " + this.getTotal());
   }
 }
