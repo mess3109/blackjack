@@ -15,7 +15,6 @@ public enum Rank {
   KING("K", 10),
   ACE("A", 1);
 
-
   private String name;
   private int value;
 
