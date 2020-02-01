@@ -3,51 +3,39 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
+public abstract class Player {
 
-  List<Card> hand;
-  String name;
+  private String name;
+  private List<Card> hand = new ArrayList<Card>();
 
   public Player(String name) {
     this.name = name;
-    refreshHand();
   }
 
   public String getName() {
-    return this.name;
+    return name;
   }
 
-  public void addCard(Deck deck) {
-    this.hand.add(deck.getNextCard());
+  public boolean isOver() {
+    return getTotal() > 21;
   }
 
-  public void stand() {
-
-  }
-
-
-  private void refreshHand() {
-    this.hand = new ArrayList<Card>();
-  }
-
-  public boolean checkHandOver() {
-    int sum = getHandSum();
-    return sum > 21;
-  }
-
-  public int getHandSum() {
-    int sum = 0;
+  public int getTotal() {
+    int minTotal = 0;
+    int maxTotal = 0;
     for (Card card : hand) {
-      sum += Math.min(card.getRank().getValue(), 10);
+      int points = card.getRank().getValue();
+      minTotal += points;
+      maxTotal += (card.getRank() == Rank.ACE) ? 11 : points;
     }
-    return sum;
+    return (maxTotal > 21) ? minTotal : maxTotal;
   }
 
-  public void playRound(Deck deck) {
-    if (getHandSum() <= 12) {
-      addCard(deck);
-    } else {
-      stand();
-    }
+  public void addCard(Card card) {
+    hand.add(card);
+  }
+
+  public String toString() {
+    return name;
   }
 }

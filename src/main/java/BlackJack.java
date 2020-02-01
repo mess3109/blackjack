@@ -1,13 +1,12 @@
 import models.Deck;
 import models.Game;
-import models.Player;
 
 public class BlackJack {
 
   public static void main(String[] args) {
 
-    Player player = new Player("Player");
-    Player dealer = new Player("Dealer");
+    BJPlayer player = new BJPlayer("BJPlayer");
+    BJPlayer dealer = new BJPlayer("Dealer");
 
     Game game = new Game(player, dealer);
     Deck deck = game.getDeck();
@@ -17,7 +16,7 @@ public class BlackJack {
       dealer.playRound(deck);
     }
 
-    Player winner = game.checkWinner();
+    BJPlayer winner = game.checkWinner();
 
 
 

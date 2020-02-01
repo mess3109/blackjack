@@ -3,11 +3,11 @@ package models;
 public class Game {
 
   private Deck deck;
-  private Player player;
-  private Player dealer;
+  private BJPlayer player;
+  private BJPlayer dealer;
   private boolean gameOver;
 
-  public Game(Player player, Player dealer) {
+  public Game(BJPlayer player, BJPlayer dealer) {
     this.deck = new Deck();
     this.player = player;
     this.dealer = dealer;
@@ -25,7 +25,7 @@ public class Game {
     return this.deck;
   }
 
-  public Player checkWinner() {
+  public BJPlayer checkWinner() {
     if (player.checkHandOver()) {
       return this.dealer;
     } else if (dealer.checkHandOver()) {
