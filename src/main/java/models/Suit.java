@@ -2,6 +2,6 @@ package models;
 
 public enum Suit {
 
-  SPADE, HEART, CLUB, DIAMOND
+  SPADES, HEARTS, CLUBS, DIAMONDS
 
 }

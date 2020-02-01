@@ -17,4 +17,9 @@ public class Card {
   public Rank getRank() {
     return rank;
   }
+
+  @Override
+  public String toString() {
+    return this.rank.getName() + " of " + this.suit.toString();
+  }
 }

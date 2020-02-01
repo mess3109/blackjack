@@ -14,7 +14,7 @@ public class Game {
     dealRound();
   }
 
-  public void dealRound() {
+  private void dealRound() {
     this.player.addCard(deck.getNextCard());
     this.dealer.addCard(deck.getNextCard());
     this.player.addCard(deck.getNextCard());
@@ -23,11 +23,9 @@ public class Game {
   }
 
   public void hit(Player player) {
-    player.addCard(deck.getNextCard());
-  }
-
-  public Deck getDeck() {
-    return this.deck;
+    Card card = deck.getNextCard();
+    player.addCard(card);
+    System.out.println("Player " + player + " is dealt " + card.toString());
   }
 
   public Card getVisibleDealerCard() {
